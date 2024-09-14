@@ -32,7 +32,17 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.headerBackGround {
+  background: hsla(0, 0%, 37%, 1);
+  background: linear-gradient(90deg, hsla(0, 0%, 37%, 1) 0%, hsla(59, 30%, 49%, 1) 100%);
+  /* background: -moz-linear-gradient(90deg, hsla(0, 0%, 37%, 1) 0%, hsla(59, 30%, 49%, 1) 100%);
+  background: -webkit-linear-gradient(90deg, hsla(0, 0%, 37%, 1) 0%, hsla(59, 30%, 49%, 1) 100%); */
+  /* filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#5E5E5E", endColorstr="#A4A358", GradientType=1); */
 }
