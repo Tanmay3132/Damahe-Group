@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-import { AppBar, Toolbar, Typography, Button, Container, Grid, Card, CardContent, CardMedia, Box, List, ListItem, ListItemIcon, ListItemText, Paper, Divider } from "@mui/material";
+import { AppBar, Toolbar, Typography, Button, Container, Grid, Card, CardContent, CardMedia, Box, List, ListItem, ListItemIcon, ListItemText, Paper, Divider, IconButton } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Construction, Business, Handshake, Email, CheckCircle, Build, AccountTree, EmojiEvents } from "@mui/icons-material";
+import { Construction, Business, Handshake, Email, CheckCircle, Build, AccountTree, EmojiEvents, Webhook, ArrowBack, ArrowForward } from "@mui/icons-material";
 import Carousel from "react-material-ui-carousel";
+import { styled } from "@mui/system";
+import CustomCarousel from "./Carousel";
 
 // Custom theme
 const theme = createTheme({
@@ -21,6 +23,7 @@ const theme = createTheme({
 
 export default function App() {
     const [isScrolled, setIsScrolled] = useState(false);
+
     var items = [
         {
             img: "https://i0.wp.com/picjumbo.com/wp-content/uploads/modern-office-building-in-the-city-free-photo.jpg?w=2210&quality=70",
@@ -30,6 +33,30 @@ export default function App() {
         },
         {
             img: "https://www.ianfulgar.com/wp-content/uploads/2020/10/ian-fulgar-architect-icdc-modern-office-building-design-03.jpg",
+        },
+    ];
+
+    let serviceItems = [
+        {
+            icon: <Build />,
+            title: "Commercial Construction",
+            desc: "State-of-the-art office buildings and retail spaces",
+            img: "https://losangelesgeneralcontractor.com/wp-content/uploads/2017/03/best-general-contractor-Los-Angeles.jpg",
+            offset: -1,
+        },
+        {
+            icon: <AccountTree />,
+            title: "Residential Development",
+            desc: "Modern homes and apartment complexes",
+            img: "https://media.licdn.com/dms/image/D4D12AQHV-BxE28qLAA/article-cover_image-shrink_600_2000/0/1691157261055?e=2147483647&v=beta&t=ftEcB866KTP3I-OHfiDoEY6YRuDOlamNwtF6wyt4OCQ",
+            offset: 0,
+        },
+        {
+            icon: <Webhook />,
+            title: "Software Development",
+            desc: "Empowering Ideas Through Technology",
+            img: "https://img.wazobia.tech/https://sytbuildr.s3.eu-west-2.amazonaws.com/0406191c-f351-4a58-b164-b9521b3d78c5/typesofsoftwareengineering.jpeg_O1teey?tr=w-1500,cr-0.0.1500.900",
+            offset: 1,
         },
     ];
 
@@ -299,72 +326,6 @@ export default function App() {
                         </Box>
                     ))}
                 </Carousel>
-                {/* <Box
-                    sx={{
-                        backgroundImage: 'url("https://i0.wp.com/picjumbo.com/wp-content/uploads/modern-office-building-in-the-city-free-photo.jpg?w=2210&quality=70")',
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                        height: "600px",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        position: "relative",
-                        "&::before": {
-                            content: '""',
-                            position: "absolute",
-                            top: 0,
-                            left: 0,
-                            right: 0,
-                            bottom: 0,
-                            backgroundColor: "rgba(0, 0, 0, 0.5)",
-                        },
-                        boxShadow: "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",
-                        // box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-                    }}
-                >
-                    {!isScrolled && (
-                        <AppBar
-                            position="fixed"
-                            sx={{
-                                bgcolor: "transparent",
-                                backgroundSize: "cover",
-                                backgroundPosition: "center",
-                                transition: "height 1.5s width 1.5s",
-                                boxShadow: isScrolled ? 1 : 0,
-                                transitionTimingFunction: "ease",
-                            }}
-                        >
-                            <Toolbar>
-                                <Typography variant="h6" component="div" sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
-                                    <Construction sx={{ mr: 1 }} />
-                                    Damahe Group
-                                </Typography>
-                                <Button color="inherit">Home</Button>
-                                <Button color="inherit">About</Button>
-                                <Button color="inherit">Projects</Button>
-                                <Button color="inherit">Services</Button>
-                                <Button color="inherit">Contact</Button>
-                            </Toolbar>
-                        </AppBar>
-                    )}
-
-                    <Container sx={{ position: "relative", zIndex: 1 }}>
-                        <Typography variant="h2" align="center" gutterBottom sx={{ color: "white", fontWeight: "bold" }}>
-                            Building Tomorrow's World Today
-                        </Typography>
-                        <Typography variant="h5" align="center" sx={{ color: "white", mb: 4 }}>
-                            Innovative Construction Solutions for a Sustainable Future
-                        </Typography>
-                        <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
-                            <Button variant="contained" color="secondary" size="large">
-                                Our Projects
-                            </Button>
-                            <Button variant="outlined" sx={{ color: "white", borderColor: "white" }} size="large">
-                                Contact Us
-                            </Button>
-                        </Box>
-                    </Container>
-                </Box> */}
 
                 {/* About Section */}
                 <Container sx={{ my: 8 }} maxWidth="lg" disableGutters={true}>
@@ -436,14 +397,10 @@ export default function App() {
                         </Grid>
                     </Grid>
                 </Container>
-                <Divider
-                    sx={{
-                        boxShadow: "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",
-                        minWidth: "90vw",
-                    }}
-                />
+
                 {/* Services Section */}
-                <Container sx={{ my: 8 }}>
+
+                <Container sx={{ my: 10 }}>
                     <Typography variant="h4" align="center" gutterBottom color="primary">
                         Featured Projects
                     </Typography>
@@ -482,37 +439,84 @@ export default function App() {
                     </Grid>
                 </Container>
 
-                <Box
-                    sx={{
-                        bgcolor: "#fcf7f0",
-                        py: 8,
-                    }}
-                >
-                    <Container>
-                        <Typography variant="h4" align="center" gutterBottom color="primary">
-                            Our Services
-                        </Typography>
-                        <Grid container spacing={4} justifyContent="center">
-                            {[
-                                { icon: <Build />, title: "Commercial Construction", desc: "State-of-the-art office buildings and retail spaces" },
-                                { icon: <AccountTree />, title: "Residential Development", desc: "Modern homes and apartment complexes" },
-                                // { icon: <Construction />, title: "Infrastructure Projects", desc: "Bridges, roads, and public facilities" },
-                            ].map((service, index) => (
-                                <Grid item xs={12} sm={6} md={4} key={index}>
-                                    <Paper elevation={3} sx={{ p: 3, height: "100%", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
-                                        <Box sx={{ mb: 2, color: "primary.main" }}>{service.icon}</Box>
-                                        <Typography variant="h6" gutterBottom>
-                                            {service.title}
+                <Typography variant="h4" align="center" gutterBottom color="primary">
+                    Our Services
+                </Typography>
+                {/* <Grid container width={"100vw"} px={3}>
+                    <Grid item md={3} lg={3} xl={3} />
+                    <Grid px={3} item md={6} lg={6} xl={6} borderRadius={"16px !important"} overflow={"hidden"}>
+                        <Carousel
+                            autoPlay={true}
+                            interval={5000}
+                            animation="fade"
+                            stopAutoPlayOnHover={false}
+                            navButtonsAlwaysInvisible={false}
+                            fullHeightHover={false}
+                            navButtonsAlwaysVisible={true}
+                            navButtonsWrapperProps={{
+                                position: "absolute",
+                                height: "100px",
+                                backgroundColor: "red",
+                                top: "calc(50% - 70px)",
+                                "&:hover": {
+                                    "& $button": {
+                                        backgroundColor: "red",
+                                        filter: "brightness(120%)",
+                                        opacity: "0.4",
+                                    },
+                                },
+                            }}
+                            sx={{
+                                transition: "opacity ease-out 1s",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                borderRadius: "16px !important",
+                                overflow: "hidden",
+                            }}
+                        >
+                            {serviceItems.map((item, i) => (
+                                <Box
+                                    key={i}
+                                    sx={{
+                                        backgroundImage: `url(${item.img})`,
+                                        backgroundSize: "cover",
+                                        backgroundPosition: "center",
+                                        height: "50vh",
+                                        display: "flex",
+                                        width: "56rem",
+                                        borderRadius: "16px !important",
+                                        alignItems: "center",
+                                        overflow: "hidden",
+                                        justifyContent: "center",
+                                        position: "relative",
+                                        "&::before": {
+                                            content: '""',
+                                            position: "absolute",
+                                            top: 0,
+                                            left: 0,
+                                            right: 0,
+                                            bottom: 0,
+                                            backgroundColor: "rgba(0, 0, 0, 0.5)",
+                                        },
+                                    }}
+                                >
+                                    <Container sx={{ position: "relative", zIndex: 1 }}>
+                                        <Typography variant="h2" align="center" gutterBottom sx={{ color: "white", fontWeight: "bold" }}>
+                                            {item.title}
                                         </Typography>
-                                        <Typography variant="body2" color="text.secondary">
-                                            {service.desc}
+                                        <Typography variant="h5" align="center" sx={{ color: "white", mb: 4 }}>
+                                            {item.desc}
                                         </Typography>
-                                    </Paper>
-                                </Grid>
+                                    </Container>
+                                </Box>
                             ))}
-                        </Grid>
-                    </Container>
-                </Box>
+                        </Carousel>
+                    </Grid>
+                    <Grid item md={3} lg={3} xl={3} />
+                </Grid> */}
+
+                <CustomCarousel items={serviceItems} />
 
                 {/* Projects Showcase */}
 
@@ -657,3 +661,72 @@ export default function App() {
         </ThemeProvider>
     );
 }
+
+// {
+//     /* <Box
+//                     sx={{
+//                         backgroundImage: 'url("https://i0.wp.com/picjumbo.com/wp-content/uploads/modern-office-building-in-the-city-free-photo.jpg?w=2210&quality=70")',
+//                         backgroundSize: "cover",
+//                         backgroundPosition: "center",
+//                         height: "600px",
+//                         display: "flex",
+//                         alignItems: "center",
+//                         justifyContent: "center",
+//                         position: "relative",
+//                         "&::before": {
+//                             content: '""',
+//                             position: "absolute",
+//                             top: 0,
+//                             left: 0,
+//                             right: 0,
+//                             bottom: 0,
+//                             backgroundColor: "rgba(0, 0, 0, 0.5)",
+//                         },
+//                         boxShadow: "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",
+//                         // box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+//                     }}
+//                 >
+//                     {!isScrolled && (
+//                         <AppBar
+//                             position="fixed"
+//                             sx={{
+//                                 bgcolor: "transparent",
+//                                 backgroundSize: "cover",
+//                                 backgroundPosition: "center",
+//                                 transition: "height 1.5s width 1.5s",
+//                                 boxShadow: isScrolled ? 1 : 0,
+//                                 transitionTimingFunction: "ease",
+//                             }}
+//                         >
+//                             <Toolbar>
+//                                 <Typography variant="h6" component="div" sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
+//                                     <Construction sx={{ mr: 1 }} />
+//                                     Damahe Group
+//                                 </Typography>
+//                                 <Button color="inherit">Home</Button>
+//                                 <Button color="inherit">About</Button>
+//                                 <Button color="inherit">Projects</Button>
+//                                 <Button color="inherit">Services</Button>
+//                                 <Button color="inherit">Contact</Button>
+//                             </Toolbar>
+//                         </AppBar>
+//                     )}
+
+//                     <Container sx={{ position: "relative", zIndex: 1 }}>
+//                         <Typography variant="h2" align="center" gutterBottom sx={{ color: "white", fontWeight: "bold" }}>
+//                             Building Tomorrow's World Today
+//                         </Typography>
+//                         <Typography variant="h5" align="center" sx={{ color: "white", mb: 4 }}>
+//                             Innovative Construction Solutions for a Sustainable Future
+//                         </Typography>
+//                         <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
+//                             <Button variant="contained" color="secondary" size="large">
+//                                 Our Projects
+//                             </Button>
+//                             <Button variant="outlined" sx={{ color: "white", borderColor: "white" }} size="large">
+//                                 Contact Us
+//                             </Button>
+//                         </Box>
+//                     </Container>
+//                 </Box> */
+// }
