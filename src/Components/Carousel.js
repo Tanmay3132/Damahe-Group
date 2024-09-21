@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { Box, Typography, Button } from "@mui/material";
-import { ChevronLeft, ChevronRight } from "@mui/icons-material";
+import { AccountTree, Build, ChevronLeft, ChevronRight, Webhook } from "@mui/icons-material";
 import { styled } from "@mui/system";
 
 const CarouselContainer = styled(Box)({
@@ -72,7 +72,31 @@ const NavButton = styled(Button)({
     zIndex: 2,
 });
 
-const ThreeItemCarousel = ({ items }) => {
+let items = [
+    {
+        icon: <Build />,
+        title: "Commercial Construction",
+        desc: "State-of-the-art office buildings and retail spaces",
+        img: "https://losangelesgeneralcontractor.com/wp-content/uploads/2017/03/best-general-contractor-Los-Angeles.jpg",
+        offset: -1,
+    },
+    {
+        icon: <AccountTree />,
+        title: "Residential Development",
+        desc: "Modern homes and apartment complexes",
+        img: "https://media.licdn.com/dms/image/D4D12AQHV-BxE28qLAA/article-cover_image-shrink_600_2000/0/1691157261055?e=2147483647&v=beta&t=ftEcB866KTP3I-OHfiDoEY6YRuDOlamNwtF6wyt4OCQ",
+        offset: 0,
+    },
+    {
+        icon: <Webhook />,
+        title: "Software Development",
+        desc: "Empowering Ideas Through Technology",
+        img: "https://img.wazobia.tech/https://sytbuildr.s3.eu-west-2.amazonaws.com/0406191c-f351-4a58-b164-b9521b3d78c5/typesofsoftwareengineering.jpeg_O1teey?tr=w-1500,cr-0.0.1500.900",
+        offset: 1,
+    },
+];
+
+const ThreeItemCarousel = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isAutoSliding, setIsAutoSliding] = useState(true);
     const [isHovering, setIsHovering] = useState(false);
