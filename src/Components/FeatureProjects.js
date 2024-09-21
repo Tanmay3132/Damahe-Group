@@ -7,6 +7,8 @@ const ProjectCard = styled(Card)(({ theme, size }) => ({
     height: size === "large" ? "400px" : "300px",
     display: "flex",
     flexDirection: "column",
+    borderRadius: "30px",
+
     position: "relative",
     overflow: "hidden",
     transition: "all 0.3s ease-in-out",
@@ -27,6 +29,8 @@ const ProjectContent = styled(CardContent)(({ theme }) => ({
     position: "absolute",
     bottom: 0,
     left: 0,
+    // borderRadius: "50px",
+
     right: 0,
     background: "rgba(0, 0, 0, 0.7)",
     color: "white",
@@ -41,6 +45,7 @@ const ProjectContent = styled(CardContent)(({ theme }) => ({
 
 const CollageContainer = styled(Box)(({ theme }) => ({
     display: "grid",
+    borderRadius: "50px",
     gridTemplateColumns: "repeat(3, 1fr)",
     gridTemplateRows: "repeat(2, 1fr)",
     gap: theme.spacing(2),
@@ -68,7 +73,7 @@ const ModalContent = styled(Box)(({ theme }) => ({
     boxShadow: theme.shadows[24],
     padding: theme.spacing(4),
     outline: "none",
-    borderRadius: theme.shape.borderRadius,
+    // borderRadius: theme.shape.borderRadius,
 }));
 
 const projects = [
@@ -116,11 +121,10 @@ export default function EnhancedHoverCollageProjects() {
     };
 
     return (
-        <Container maxWidth="xl" sx={{ my: 10 }}>
-            
-            <CollageContainer>
+        <Container maxWidth="xl" sx={{ my: 10, borderRadius: "50px" }}>
+            <CollageContainer borderRadius={"50px"}>
                 {projects.map((project, index) => (
-                    <Box key={index} sx={{ gridArea: project.gridArea }}>
+                    <Box key={index} sx={{ gridArea: project.gridArea, borderRadius: "50px" }}>
                         <ProjectCard size={project.size}>
                             <ProjectMedia image={project.image} title={project.title} />
                             <ProjectContent>
