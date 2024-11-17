@@ -3,6 +3,7 @@ import { AppBar, Button, Toolbar, Typography } from "@mui/material";
 import { Box, Container, Grid } from "@mui/system";
 import React from "react";
 import Carousel from "react-material-ui-carousel";
+import { logo } from "../util/logoBase64";
 
 var items = [
     {
@@ -71,7 +72,7 @@ export default function Home({ isScrolled, scrollToSection }) {
                                 <Grid mx={1.5}></Grid>
 
                                 <Typography variant="h6" component="div" sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
-                                    <Construction sx={{ mr: 1 }} />
+                                    <img src={logo} alt="Damahe Group" width={70} />
                                     Damahe Group
                                 </Typography>
                                 <Button

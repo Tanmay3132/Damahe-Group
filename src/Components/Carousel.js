@@ -72,27 +72,54 @@ const NavButton = styled(Button)({
     zIndex: 2,
 });
 
-let items = [
+// let items = [
+//     {
+//         icon: <Build />,
+//         title: "Commercial Construction",
+//         desc: "State-of-the-art office buildings and retail spaces",
+//         img: "https://losangelesgeneralcontractor.com/wp-content/uploads/2017/03/best-general-contractor-Los-Angeles.jpg",
+//         offset: -1,
+//     },
+//     {
+//         icon: <AccountTree />,
+//         title: "Residential Development",
+//         desc: "Modern homes and apartment complexes",
+//         img: "https://media.licdn.com/dms/image/D4D12AQHV-BxE28qLAA/article-cover_image-shrink_600_2000/0/1691157261055?e=2147483647&v=beta&t=ftEcB866KTP3I-OHfiDoEY6YRuDOlamNwtF6wyt4OCQ",
+//         offset: 0,
+//     },
+//     {
+//         icon: <Webhook />,
+//         title: "Software Development",
+//         desc: "Empowering Ideas Through Technology",
+//         img: "https://img.wazobia.tech/https://sytbuildr.s3.eu-west-2.amazonaws.com/0406191c-f351-4a58-b164-b9521b3d78c5/typesofsoftwareengineering.jpeg_O1teey?tr=w-1500,cr-0.0.1500.900",
+//         offset: 1,
+//     },
+// ];
+
+const items = [
     {
-        icon: <Build />,
+        icon: <Build fontSize="large" />,
         title: "Commercial Construction",
-        desc: "State-of-the-art office buildings and retail spaces",
+        // desc: "State-of-the-art office buildings and retail spaces designed for modern businesses",
+        desc: "Our commercial construction services deliver cutting-edge office buildings and retail spaces that meet the evolving needs of modern businesses. We focus on creating environments that boost productivity, enhance employee well-being, and leave a lasting impression on clients and visitors alike.",
         img: "https://losangelesgeneralcontractor.com/wp-content/uploads/2017/03/best-general-contractor-Los-Angeles.jpg",
-        offset: -1,
+        features: ["Sustainable design", "Smart building technology", "Flexible workspaces", "Energy-efficient systems"],
     },
     {
-        icon: <AccountTree />,
+        icon: <AccountTree fontSize="large" />,
         title: "Residential Development",
-        desc: "Modern homes and apartment complexes",
+        // desc: "Modern homes and apartment complexes built for comfort and style",
+        desc: "Our residential developments blend contemporary design with practical living solutions. From luxurious single-family homes to innovative apartment complexes, we create living spaces that prioritize comfort, sustainability, and community integration.",
         img: "https://media.licdn.com/dms/image/D4D12AQHV-BxE28qLAA/article-cover_image-shrink_600_2000/0/1691157261055?e=2147483647&v=beta&t=ftEcB866KTP3I-OHfiDoEY6YRuDOlamNwtF6wyt4OCQ",
-        offset: 0,
+        features: ["Open-concept designs", "Energy-efficient appliances", "Smart home integration", "Community amenities"],
     },
     {
-        icon: <Webhook />,
+        icon: <Webhook fontSize="large" />,
         title: "Software Development",
-        desc: "Empowering Ideas Through Technology",
+        // desc: "Empowering ideas through cutting-edge technology solutions",
+        desc: "Our software development team creates powerful, scalable applications that drive business growth and innovation. We specialize in developing custom software solutions, mobile apps, and web platforms that streamline operations and enhance user experiences.",
         img: "https://img.wazobia.tech/https://sytbuildr.s3.eu-west-2.amazonaws.com/0406191c-f351-4a58-b164-b9521b3d78c5/typesofsoftwareengineering.jpeg_O1teey?tr=w-1500,cr-0.0.1500.900",
-        offset: 1,
+        features: ["Custom software solutions", "Mobile app development", "Cloud integration", "AI and machine learning"],
     },
 ];
 

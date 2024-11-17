@@ -9,6 +9,7 @@ import Partners from "./Components/Partners";
 import HeaderComponent from "./Components/HeaderComponent";
 import Home from "./Components/Home";
 import About from "./Components/About";
+import { logo } from "./util/logoBase64";
 
 // Custom theme
 const theme = createTheme({
@@ -71,7 +72,7 @@ export default function App() {
                 <About />
 
                 {/* Services Section */}
-                <Typography id="Projects" variant="h4" align="center" gutterBottom color="primary">
+                <Typography id="Projects" variant="h3" align="center" gutterBottom color="primary">
                     Featured Projects
                 </Typography>
                 <EnhancedCollageProjects />
@@ -84,10 +85,10 @@ export default function App() {
                 <CustomCarousel />
 
                 {/*   Strategic Partners Section */}
-                <Typography variant="h4" align="center" gutterBottom color="primary">
+                {/* <Typography variant="h4" align="center" gutterBottom color="primary">
                     Strategic Partners
                 </Typography>
-                <Partners />
+                <Partners /> */}
 
                 {/* Contact Us Section*/}
                 <Typography id="Contact" mt={8} mb={6} variant="h4" align="center" gutterBottom color="primary">
@@ -110,16 +111,15 @@ export default function App() {
                     <Container>
                         <Grid container spacing={4}>
                             <Grid item xs={12} sm={4}>
-                                <Typography variant="h6" gutterBottom sx={{ display: "flex", alignItems: "center" }}>
-                                    <Business sx={{ mr: 1 }} />
-                                    BuildCo
+                                <Typography variant="h6" gutterBottom sx={{ display: "flex", alignItems: "center", ml: 4 }}>
+                                    <img src={logo} alt="Damahe Group" width={70} />
                                 </Typography>
                                 <Typography variant="body2">
-                                    123 Construction Ave
+                                    Plot No 21, Sadashiv Nagar
                                     <br />
-                                    Cityville, State 12345
+                                    Near Bandhan Celebrations,
                                     <br />
-                                    United States
+                                    Nagpur, 440027
                                 </Typography>
                             </Grid>
                             <Grid item xs={12} sm={4}>
@@ -148,16 +148,14 @@ export default function App() {
                                     Contact Us
                                 </Typography>
                                 <Typography variant="body2">
-                                    Email: info@buildco.com
+                                    Email: devdhamahe@gmail.com
                                     <br />
-                                    Phone: (123) 456-7890
-                                    <br />
-                                    Fax: (123) 456-7891
+                                    Phone: +917507063506
                                 </Typography>
                             </Grid>
                         </Grid>
                         <Box sx={{ mt: 4, textAlign: "center" }}>
-                            <Typography variant="body2">© {new Date().getFullYear()} BuildCo. All rights reserved.</Typography>
+                            <Typography variant="body2">© {new Date().getFullYear()} Damahe Group. All rights reserved.</Typography>
                         </Box>
                     </Container>
                 </Box>
