@@ -1,9 +1,8 @@
-import { AppBar, Button, Toolbar, Typography } from "@mui/material";
-import { Box, Container, Grid } from "@mui/system";
+import { Typography } from "@mui/material";
+import { Box, Container } from "@mui/system";
 import React from "react";
 import Carousel from "react-material-ui-carousel";
-import { logo } from "../util/logoBase64";
-import { AnimatePresence, motion } from "framer-motion";
+import AppBarComponent from "./AppBar";
 
 var items = [
     {
@@ -55,74 +54,75 @@ export default function Home({ isScrolled, scrollToSection }) {
                     }}
                 >
                     {!isScrolled && (
-                        <AppBar
-                            position="fixed"
-                            sx={{
-                                height: "20vh",
-                                minHeight: "20vh !important;",
-                                bgcolor: "transparent",
-                                backgroundSize: "cover",
-                                backgroundPosition: "center",
-                                transition: "height 1.5s width 1.5s",
-                                boxShadow: isScrolled ? 1 : 0,
-                                transitionTimingFunction: "ease",
-                            }}
-                        >
-                            <Toolbar>
-                                <Grid mx={1.5}></Grid>
+                        // <AppBar
+                        //     position="fixed"
+                        //     sx={{
+                        //         height: "20vh",
+                        //         minHeight: "20vh !important;",
+                        //         bgcolor: "transparent",
+                        //         backgroundSize: "cover",
+                        //         backgroundPosition: "center",
+                        //         transition: "height 1.5s width 1.5s",
+                        //         boxShadow: isScrolled ? 1 : 0,
+                        //         transitionTimingFunction: "ease",
+                        //     }}
+                        // >
+                        //     <Toolbar>
+                        //         <Grid mx={1.5}></Grid>
 
-                                <Typography variant="h6" component="div" sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
-                                    <img src={logo} alt="Damahe Group" width={70} />
-                                    Damahe Group
-                                </Typography>
-                                <Button
-                                    color="inherit"
-                                    onClick={() => {
-                                        scrollToSection("#Home");
-                                    }}
-                                >
-                                    Home
-                                </Button>
-                                <Grid mx={1} />
-                                <Button
-                                    color="inherit"
-                                    onClick={() => {
-                                        scrollToSection("#About");
-                                    }}
-                                >
-                                    About
-                                </Button>
-                                <Grid mx={1} />
-                                <Button
-                                    color="inherit"
-                                    onClick={() => {
-                                        scrollToSection("#Projects");
-                                    }}
-                                >
-                                    Projects
-                                </Button>
-                                <Grid mx={1} />
-                                <Button
-                                    color="inherit"
-                                    onClick={() => {
-                                        scrollToSection("#Services");
-                                    }}
-                                >
-                                    Services
-                                </Button>
-                                <Grid mx={1} />
-                                <Button
-                                    variant="outlined"
-                                    color="inherit"
-                                    onClick={() => {
-                                        scrollToSection("#Contact");
-                                    }}
-                                >
-                                    Contact Us
-                                </Button>
-                                <Grid mx={1.5} />
-                            </Toolbar>
-                        </AppBar>
+                        //         <Typography variant="h6" component="div" sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
+                        //             <img src={logo} alt="Damahe Group" width={70} />
+                        //             Damahe Group
+                        //         </Typography>
+                        //         <Button
+                        //             color="inherit"
+                        //             onClick={() => {
+                        //                 scrollToSection("#Home");
+                        //             }}
+                        //         >
+                        //             Home
+                        //         </Button>
+                        //         <Grid mx={1} />
+                        //         <Button
+                        //             color="inherit"
+                        //             onClick={() => {
+                        //                 scrollToSection("#About");
+                        //             }}
+                        //         >
+                        //             About
+                        //         </Button>
+                        //         <Grid mx={1} />
+                        //         <Button
+                        //             color="inherit"
+                        //             onClick={() => {
+                        //                 scrollToSection("#Projects");
+                        //             }}
+                        //         >
+                        //             Projects
+                        //         </Button>
+                        //         <Grid mx={1} />
+                        //         <Button
+                        //             color="inherit"
+                        //             onClick={() => {
+                        //                 scrollToSection("#Services");
+                        //             }}
+                        //         >
+                        //             Services
+                        //         </Button>
+                        //         <Grid mx={1} />
+                        //         <Button
+                        //             variant="outlined"
+                        //             color="inherit"
+                        //             onClick={() => {
+                        //                 scrollToSection("#Contact");
+                        //             }}
+                        //         >
+                        //             Contact Us
+                        //         </Button>
+                        //         <Grid mx={1.5} />
+                        //     </Toolbar>
+                        // </AppBar>
+                        <AppBarComponent isScrolled={isScrolled} fromCarousel={true} key={i} />
                     )}
 
                     <Container sx={{ position: "relative", zIndex: 1 }}>
@@ -132,14 +132,6 @@ export default function Home({ isScrolled, scrollToSection }) {
                         <Typography variant="h5" align="center" sx={{ color: "white", mb: 4 }}>
                             Innovative Construction Solutions for a Sustainable Future
                         </Typography>
-                        {/* <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
-                            <Button variant="contained" color="secondary" size="large">
-                                Our Projects
-                            </Button>
-                            <Button variant="outlined" sx={{ color: "white", borderColor: "white" }} size="large">
-                                Contact Us
-                            </Button>
-                        </Box> */}
                     </Container>
                 </Box>
             ))}
