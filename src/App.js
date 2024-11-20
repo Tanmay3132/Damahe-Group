@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Typography, Button, Container, Grid, Box } from "@mui/material";
+import { Typography, Button, Container, Grid, Box, Divider } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Business, Handshake, Email } from "@mui/icons-material";
+import { Handshake, Email } from "@mui/icons-material";
 import CustomCarousel from "./Components/Carousel";
 import ContactForm from "./Components/ContactUs";
 import EnhancedCollageProjects from "./Components/FeatureProjects";
-import Partners from "./Components/Partners";
 import HeaderComponent from "./Components/HeaderComponent";
 import Home from "./Components/Home";
 import About from "./Components/About";
@@ -79,10 +78,11 @@ export default function App() {
 
                 {/* Our Services */}
 
-                <Typography id="Services" variant="h4" align="center" gutterBottom color="primary">
+                <Typography id="Services" variant="h3" align="center" gutterBottom color="primary">
                     Our Services
                 </Typography>
                 <CustomCarousel />
+                <Divider sx={{ my: 4 }} />
 
                 {/*   Strategic Partners Section */}
                 {/* <Typography variant="h4" align="center" gutterBottom color="primary">
@@ -91,7 +91,7 @@ export default function App() {
                 <Partners /> */}
 
                 {/* Contact Us Section*/}
-                <Typography id="Contact" mt={8} mb={6} variant="h4" align="center" gutterBottom color="primary">
+                <Typography id="Contact" mt={8} mb={6} variant="h3" align="center" gutterBottom color="primary">
                     Contact Us
                 </Typography>
                 <Container sx={{ minWidth: "70vw" }}>
@@ -148,9 +148,9 @@ export default function App() {
                                     Contact Us
                                 </Typography>
                                 <Typography variant="body2">
-                                    Email: devdhamahe@gmail.com
+                                    Email: dconcompany@gmail.com
                                     <br />
-                                    Phone: +917507063506
+                                    Phone: +918767860463
                                 </Typography>
                             </Grid>
                         </Grid>

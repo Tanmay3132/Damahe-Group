@@ -1,9 +1,9 @@
-import { Construction } from "@mui/icons-material";
 import { AppBar, Button, Toolbar, Typography } from "@mui/material";
 import { Box, Container, Grid } from "@mui/system";
 import React from "react";
 import Carousel from "react-material-ui-carousel";
 import { logo } from "../util/logoBase64";
+import { AnimatePresence, motion } from "framer-motion";
 
 var items = [
     {
@@ -112,12 +112,13 @@ export default function Home({ isScrolled, scrollToSection }) {
                                 </Button>
                                 <Grid mx={1} />
                                 <Button
+                                    variant="outlined"
                                     color="inherit"
                                     onClick={() => {
                                         scrollToSection("#Contact");
                                     }}
                                 >
-                                    Contact
+                                    Contact Us
                                 </Button>
                                 <Grid mx={1.5} />
                             </Toolbar>
@@ -131,14 +132,14 @@ export default function Home({ isScrolled, scrollToSection }) {
                         <Typography variant="h5" align="center" sx={{ color: "white", mb: 4 }}>
                             Innovative Construction Solutions for a Sustainable Future
                         </Typography>
-                        <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
+                        {/* <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
                             <Button variant="contained" color="secondary" size="large">
                                 Our Projects
                             </Button>
                             <Button variant="outlined" sx={{ color: "white", borderColor: "white" }} size="large">
                                 Contact Us
                             </Button>
-                        </Box>
+                        </Box> */}
                     </Container>
                 </Box>
             ))}

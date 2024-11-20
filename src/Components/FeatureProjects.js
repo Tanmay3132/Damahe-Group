@@ -433,6 +433,7 @@ export default function EnhancedHoverCollageProjects() {
                     </ModalContent>
                 </Fade>
             </Modal>
+            <Divider sx={{ my: 4 }} />
         </Container>
     );
 }

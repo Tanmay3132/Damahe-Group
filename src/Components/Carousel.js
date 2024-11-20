@@ -1,9 +1,11 @@
+"use client";
+
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { Box, Typography, Button } from "@mui/material";
 import { AccountTree, Build, ChevronLeft, ChevronRight, Webhook } from "@mui/icons-material";
 import { styled } from "@mui/system";
 
-const CarouselContainer = styled(Box)({
+const CarouselContainer = styled(Box)(({ theme }) => ({
     position: "relative",
     width: "100%",
     height: "500px",
@@ -11,7 +13,10 @@ const CarouselContainer = styled(Box)({
     justifyContent: "center",
     alignItems: "center",
     overflow: "hidden",
-});
+    [theme.breakpoints.down("sm")]: {
+        height: "400px",
+    },
+}));
 
 const CarouselTrack = styled(Box)({
     display: "flex",
@@ -22,7 +27,7 @@ const CarouselTrack = styled(Box)({
     position: "relative",
 });
 
-const CarouselItem = styled(Box)(({ position, backgroundImage, isHovered }) => ({
+const CarouselItem = styled(Box)(({ theme, position, backgroundImage, isHovered }) => ({
     position: "absolute",
     width: "40%",
     height: "80%",
@@ -44,6 +49,11 @@ const CarouselItem = styled(Box)(({ position, backgroundImage, isHovered }) => (
     transform: `translateX(${position * 55}%) scale(${position === 0 ? (isHovered ? 1.02 : 1) : 0.9})`,
     zIndex: 2 - Math.abs(position),
     cursor: position === 0 ? "pointer" : "default",
+    [theme.breakpoints.down("sm")]: {
+        width: "80%",
+        height: "70%",
+        transform: `translateX(${position * 100}%) scale(${position === 0 ? (isHovered ? 1.02 : 1) : 0.9})`,
+    },
 }));
 
 const ContentOverlay = styled(Box)({
@@ -55,7 +65,7 @@ const ContentOverlay = styled(Box)({
     transition: "transform 0.3s ease-in-out",
 });
 
-const NavButton = styled(Button)({
+const NavButton = styled(Button)(({ theme }) => ({
     position: "absolute",
     top: "50%",
     transform: "translateY(-50%)",
@@ -63,44 +73,23 @@ const NavButton = styled(Button)({
     width: "50px",
     height: "50px",
     borderRadius: "50px",
-    // backgroundColor: "#474747",
     color: "grey",
     "&:hover": {
         background: "transparent",
         color: "black",
     },
     zIndex: 2,
-});
-
-// let items = [
-//     {
-//         icon: <Build />,
-//         title: "Commercial Construction",
-//         desc: "State-of-the-art office buildings and retail spaces",
-//         img: "https://losangelesgeneralcontractor.com/wp-content/uploads/2017/03/best-general-contractor-Los-Angeles.jpg",
-//         offset: -1,
-//     },
-//     {
-//         icon: <AccountTree />,
-//         title: "Residential Development",
-//         desc: "Modern homes and apartment complexes",
-//         img: "https://media.licdn.com/dms/image/D4D12AQHV-BxE28qLAA/article-cover_image-shrink_600_2000/0/1691157261055?e=2147483647&v=beta&t=ftEcB866KTP3I-OHfiDoEY6YRuDOlamNwtF6wyt4OCQ",
-//         offset: 0,
-//     },
-//     {
-//         icon: <Webhook />,
-//         title: "Software Development",
-//         desc: "Empowering Ideas Through Technology",
-//         img: "https://img.wazobia.tech/https://sytbuildr.s3.eu-west-2.amazonaws.com/0406191c-f351-4a58-b164-b9521b3d78c5/typesofsoftwareengineering.jpeg_O1teey?tr=w-1500,cr-0.0.1500.900",
-//         offset: 1,
-//     },
-// ];
+    [theme.breakpoints.down("sm")]: {
+        width: "40px",
+        height: "40px",
+        minWidth: "40px",
+    },
+}));
 
 const items = [
     {
         icon: <Build fontSize="large" />,
         title: "Commercial Construction",
-        // desc: "State-of-the-art office buildings and retail spaces designed for modern businesses",
         desc: "Our commercial construction services deliver cutting-edge office buildings and retail spaces that meet the evolving needs of modern businesses. We focus on creating environments that boost productivity, enhance employee well-being, and leave a lasting impression on clients and visitors alike.",
         img: "https://losangelesgeneralcontractor.com/wp-content/uploads/2017/03/best-general-contractor-Los-Angeles.jpg",
         features: ["Sustainable design", "Smart building technology", "Flexible workspaces", "Energy-efficient systems"],
@@ -108,7 +97,6 @@ const items = [
     {
         icon: <AccountTree fontSize="large" />,
         title: "Residential Development",
-        // desc: "Modern homes and apartment complexes built for comfort and style",
         desc: "Our residential developments blend contemporary design with practical living solutions. From luxurious single-family homes to innovative apartment complexes, we create living spaces that prioritize comfort, sustainability, and community integration.",
         img: "https://media.licdn.com/dms/image/D4D12AQHV-BxE28qLAA/article-cover_image-shrink_600_2000/0/1691157261055?e=2147483647&v=beta&t=ftEcB866KTP3I-OHfiDoEY6YRuDOlamNwtF6wyt4OCQ",
         features: ["Open-concept designs", "Energy-efficient appliances", "Smart home integration", "Community amenities"],
@@ -116,19 +104,19 @@ const items = [
     {
         icon: <Webhook fontSize="large" />,
         title: "Software Development",
-        // desc: "Empowering ideas through cutting-edge technology solutions",
         desc: "Our software development team creates powerful, scalable applications that drive business growth and innovation. We specialize in developing custom software solutions, mobile apps, and web platforms that streamline operations and enhance user experiences.",
         img: "https://img.wazobia.tech/https://sytbuildr.s3.eu-west-2.amazonaws.com/0406191c-f351-4a58-b164-b9521b3d78c5/typesofsoftwareengineering.jpeg_O1teey?tr=w-1500,cr-0.0.1500.900",
         features: ["Custom software solutions", "Mobile app development", "Cloud integration", "AI and machine learning"],
     },
 ];
 
-const ThreeItemCarousel = () => {
+export default function ResponsiveCarousel() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isAutoSliding, setIsAutoSliding] = useState(true);
     const [isHovering, setIsHovering] = useState(false);
     const [isCardHovered, setIsCardHovered] = useState(false);
     const resumeTimeoutRef = useRef(null);
+    const touchStartX = useRef(null);
 
     const move = useCallback(
         (direction) => {
@@ -161,13 +149,13 @@ const ThreeItemCarousel = () => {
         }
     }, [isAutoSliding, isHovering, move]);
 
-    const handleMouseEnter = () => {
+    const handleInteractionStart = () => {
         setIsHovering(true);
         setIsAutoSliding(false);
         startResumeTimeout();
     };
 
-    const handleMouseLeave = () => {
+    const handleInteractionEnd = () => {
         setIsHovering(false);
         setIsCardHovered(false);
         if (resumeTimeoutRef.current) {
@@ -188,6 +176,56 @@ const ThreeItemCarousel = () => {
         startResumeTimeout();
     };
 
+    const handleTouchStart = (e) => {
+        touchStartX.current = e.touches[0].clientX;
+    };
+
+    const handleTouchMove = (e) => {
+        if (touchStartX.current === null) return;
+
+        const touchEndX = e.touches[0].clientX;
+        const diff = touchStartX.current - touchEndX;
+
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+                moveNext();
+            } else {
+                movePrev();
+            }
+            touchStartX.current = null;
+        }
+    };
+
+    const handleTouchEnd = () => {
+        touchStartX.current = null;
+    };
+
+    const handleMouseDown = (e) => {
+        e.preventDefault();
+        touchStartX.current = e.clientX;
+    };
+
+    const handleMouseMove = (e) => {
+        e.preventDefault();
+        if (touchStartX.current === null) return;
+
+        const currentX = e.clientX;
+        const diff = touchStartX.current - currentX;
+
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+                moveNext();
+            } else {
+                movePrev();
+            }
+            touchStartX.current = null;
+        }
+    };
+
+    const handleMouseUp = () => {
+        touchStartX.current = null;
+    };
+
     useEffect(() => {
         return () => {
             if (resumeTimeoutRef.current) {
@@ -197,7 +235,16 @@ const ThreeItemCarousel = () => {
     }, []);
 
     return (
-        <CarouselContainer onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <CarouselContainer
+            onMouseEnter={handleInteractionStart}
+            onMouseLeave={handleInteractionEnd}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+        >
             <NavButton onClick={movePrev} style={{ left: "5%" }}>
                 <ChevronLeft
                     fontSize="large"
@@ -251,6 +298,4 @@ const ThreeItemCarousel = () => {
             </NavButton>
         </CarouselContainer>
     );
-};
-
-export default ThreeItemCarousel;
+}

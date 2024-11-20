@@ -92,10 +92,9 @@ export default function About() {
                     Our Commitment to Sustainability
                 </Typography>
                 <Typography variant="body1" paragraph sx={{ maxWidth: 800, mx: "auto" }}>
-                    At BuildCo, we believe in building not just for today, but for tomorrow. Our commitment to sustainability drives us to incorporate eco-friendly practices and materials in all our
-                    projects, ensuring a greener future for generations to come.
+                    At Damahe Group, we believe in building not just for today, but for tomorrow. Our commitment to sustainability drives us to incorporate eco-friendly practices and materials in all
+                    our projects, ensuring a greener future for generations to come.
                 </Typography>
-                <Chip label="Learn More About Our Green Initiatives" color="secondary" clickable />
             </Box>
         </Container>
     );

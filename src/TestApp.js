@@ -57,7 +57,7 @@ export default function TestApp() {
                         <Toolbar>
                             <Typography variant="h6" component="div" sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
                                 <Construction sx={{ mr: 1 }} />
-                                BuildCo
+                                Damahe Group
                             </Typography>
                             <Button color="inherit">Home</Button>
                             <Button color="inherit">About</Button>
@@ -108,7 +108,7 @@ export default function TestApp() {
                             <Toolbar>
                                 <Typography variant="h6" component="div" sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
                                     <Construction sx={{ mr: 1 }} />
-                                    BuildCo
+                                    Damahe Group
                                 </Typography>
                                 <Button color="inherit">Home</Button>
                                 <Button color="inherit">About</Button>
@@ -140,13 +140,13 @@ export default function TestApp() {
                 {/* About Section */}
                 <Container sx={{ my: 8 }}>
                     <Typography variant="h4" gutterBottom color="primary">
-                        About BuildCo
+                        About Damahe Group
                     </Typography>
                     <Grid container spacing={4}>
                         <Grid item xs={12} md={6}>
                             <Typography variant="body1" paragraph>
-                                BuildCo is a leading construction company with over 25 years of experience in delivering high-quality projects that shape the future of our cities and communities. We
-                                specialize in commercial, residential, and infrastructure development, always striving for innovation and excellence.
+                                Damahe Group is a leading construction company with over 25 years of experience in delivering high-quality projects that shape the future of our cities and communities.
+                                We specialize in commercial, residential, and infrastructure development, always striving for innovation and excellence.
                             </Typography>
                             <Typography variant="body1" paragraph>
                                 Our team of expert engineers, architects, and project managers work together to bring cutting-edge solutions to every project, ensuring sustainability, efficiency, and
@@ -312,7 +312,7 @@ export default function TestApp() {
                             <Grid item xs={12} sm={4}>
                                 <Typography variant="h6" gutterBottom sx={{ display: "flex", alignItems: "center" }}>
                                     <Business sx={{ mr: 1 }} />
-                                    BuildCo
+                                    Damahe Group
                                 </Typography>
                                 <Typography variant="body2">
                                     123 Construction Ave
@@ -348,7 +348,7 @@ export default function TestApp() {
                                     Contact Us
                                 </Typography>
                                 <Typography variant="body2">
-                                    Email: info@buildco.com
+                                    Email: info@Damahe Group.com
                                     <br />
                                     Phone: (123) 456-7890
                                     <br />
@@ -357,7 +357,7 @@ export default function TestApp() {
                             </Grid>
                         </Grid>
                         <Box sx={{ mt: 4, textAlign: "center" }}>
-                            <Typography variant="body2">© {new Date().getFullYear()} BuildCo. All rights reserved.</Typography>
+                            <Typography variant="body2">© {new Date().getFullYear()} Damahe Group. All rights reserved.</Typography>
                         </Box>
                     </Container>
                 </Box>
