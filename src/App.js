@@ -10,6 +10,8 @@ import Home from "./Components/Home";
 import About from "./Components/About";
 import { logo } from "./util/logoBase64";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
 
 // Custom theme
 const theme = createTheme({
@@ -57,10 +59,20 @@ export default function App() {
             <Fab
                 color="success"
                 aria-label="add"
-                sx={{ position: "fixed", bottom: 10, right: 40, zIndex: 90 }}
-                onClick={() => window.open("https://api.whatsapp.com/send/?phone=+917507063506&text=Hello!%20Can%20I%20get%20more%20info%20on%20this?&type=phone_number&app_absent=0")}
+                sx={{ position: "fixed", bottom: 130, right: 20, zIndex: 90 }}
+                onClick={() => window.open("https://api.whatsapp.com/send/?phone=+918767860463&text=Hello!%20Can%20I%20get%20more%20info%20on%20this?&type=phone_number&app_absent=0")}
             >
                 <WhatsAppIcon />
+            </Fab>
+            <Fab color="primary" aria-label="add" sx={{ position: "fixed", bottom: 70, right: 20, zIndex: 90 }} onClick={() => window.open("https://www.facebook.com/DCC.2004")}>
+                <FacebookIcon />
+            </Fab>
+            <Fab
+                aria-label="add"
+                sx={{ position: "fixed", bottom: 10, right: 20, zIndex: 90, background: "linear-gradient(135deg, #FF6A00 0%, #EE0979 30%, #7928CA 100%)", color: "white" }}
+                onClick={() => window.open("https://www.instagram.com/damahe_group?igsh=MTVvbXV3cnc4ZzE0MA==")}
+            >
+                <InstagramIcon />
             </Fab>
             <Box
                 sx={{

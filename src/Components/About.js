@@ -29,7 +29,7 @@ export default function About() {
                         at the forefront of modern construction techniques, delivering projects that stand as testaments to our expertise and vision.
                     </Typography>
                     <List>
-                        {["25+ Years of Industry Experience", "500+ Successfully Completed Projects", "100% Client Satisfaction Rate", "50+ Industry Awards and Recognitions"].map((item, index) => (
+                        {["25+ Years of Industry Experience", "100+ Successfully Completed Projects", "100% Client Satisfaction Rate"].map((item, index) => (
                             <ListItem key={index} disablePadding>
                                 <ListItemIcon>
                                     <CheckCircle color="secondary" />
