@@ -89,14 +89,14 @@ const NavButton = styled(Button)(({ theme }) => ({
 const items = [
     {
         icon: <Build fontSize="large" />,
-        title: "Commercial Construction",
+        title: "Commercial Projects",
         desc: "Our commercial construction services deliver cutting-edge office buildings and retail spaces that meet the evolving needs of modern businesses. We focus on creating environments that boost productivity, enhance employee well-being, and leave a lasting impression on clients and visitors alike.",
         img: "https://losangelesgeneralcontractor.com/wp-content/uploads/2017/03/best-general-contractor-Los-Angeles.jpg",
         features: ["Sustainable design", "Smart building technology", "Flexible workspaces", "Energy-efficient systems"],
     },
     {
         icon: <AccountTree fontSize="large" />,
-        title: "Residential Development",
+        title: "Residential Projects",
         desc: "Our residential developments blend contemporary design with practical living solutions. From luxurious single-family homes to innovative apartment complexes, we create living spaces that prioritize comfort, sustainability, and community integration.",
         img: "https://media.licdn.com/dms/image/D4D12AQHV-BxE28qLAA/article-cover_image-shrink_600_2000/0/1691157261055?e=2147483647&v=beta&t=ftEcB866KTP3I-OHfiDoEY6YRuDOlamNwtF6wyt4OCQ",
         features: ["Open-concept designs", "Energy-efficient appliances", "Smart home integration", "Community amenities"],
@@ -275,11 +275,11 @@ export default function ResponsiveCarousel() {
                                 <Typography variant="body2" style={{ marginBottom: "15px" }}>
                                     {item.desc}
                                 </Typography>
-                                {position === 1 && (
-                                    <Button variant="contained" color="primary">
-                                        Learn More
-                                    </Button>
-                                )}
+                                {/* {position === 1 && (
+                                    // <Button variant="contained" color="primary">
+                                    //     Learn More
+                                    // </Button>
+                                )} */}
                             </ContentOverlay>
                         </CarouselItem>
                     );

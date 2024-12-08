@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Typography, Button, Container, Grid, Box, Divider } from "@mui/material";
+import { Typography, Button, Container, Grid, Box, Divider, Fab } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Handshake, Email } from "@mui/icons-material";
+import { Handshake, Email, AddIcCallOutlined } from "@mui/icons-material";
 import CustomCarousel from "./Components/Carousel";
 import ContactForm from "./Components/ContactUs";
 import EnhancedCollageProjects from "./Components/FeatureProjects";
@@ -9,6 +9,7 @@ import HeaderComponent from "./Components/HeaderComponent";
 import Home from "./Components/Home";
 import About from "./Components/About";
 import { logo } from "./util/logoBase64";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
 // Custom theme
 const theme = createTheme({
@@ -53,6 +54,14 @@ export default function App() {
 
     return (
         <ThemeProvider theme={theme}>
+            <Fab
+                color="success"
+                aria-label="add"
+                sx={{ position: "fixed", bottom: 10, right: 40, zIndex: 90 }}
+                onClick={() => window.open("https://api.whatsapp.com/send/?phone=+917507063506&text=Hello!%20Can%20I%20get%20more%20info%20on%20this?&type=phone_number&app_absent=0")}
+            >
+                <WhatsAppIcon />
+            </Fab>
             <Box
                 sx={{
                     flexGrow: 1,
@@ -62,6 +71,7 @@ export default function App() {
                 }}
             >
                 {/* Header Section */}
+
                 <HeaderComponent isScrolled={isScrolled} scrollToSection={scrollToSection} />
 
                 {/* Home Section */}
