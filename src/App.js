@@ -148,7 +148,7 @@ export default function App() {
                                     Contact Us
                                 </Typography>
                                 <Typography variant="body2">
-                                    Email: dconcompany@gmail.com
+                                    Email: damahegroup@gmail.com
                                     <br />
                                     Phone: +918767860463
                                 </Typography>

@@ -78,7 +78,7 @@
 // const projects = [
 //     {
 //         image: "/devBhaiyaHouse.jpeg",
-//         title: "Hideaway Haven",
+//         title: "Moder loft ",
 //         desc: "Escape to a world of tranquility at Hideaway Haven, where modern comforts blend seamlessly with natural beauty. Our carefully crafted spaces provide the perfect setting for relaxation, creativity, or simply being. Let the warmth of our haven envelop you, and rediscover your sense of calm.",
 //         size: "large",
 //         gridArea: "1 / 1 / 3 / 2",
@@ -342,14 +342,14 @@ const ModalContent = styled(Box)(({ theme }) => ({
 const projects = [
     {
         image: "/devBhaiyaHouse.jpeg",
-        title: "Hideaway Haven",
-        desc: "Escape to a world of tranquility at Hideaway Haven, where modern comforts blend seamlessly with natural beauty. Our carefully crafted spaces provide the perfect setting for relaxation, creativity, or simply being. Let the warmth of our haven envelop you, and rediscover your sense of calm.",
+        title: "Modern Loft ",
+        desc: "Escape to a world of tranquility at Modern loft , where modern comforts blend seamlessly with natural beauty. Our carefully crafted spaces provide the perfect setting for relaxation, creativity, or simply being. Let the warmth of our haven envelop you, and rediscover your sense of calm.",
         size: "large",
         gridArea: "1 / 1 / 3 / 2",
         details: {
             location: "Downtown Metropolis",
-            duration: "36 months",
-            budget: "$500 million",
+            duration: "12 months",
+            budget: "1.5 Crores",
             features: ["LEED Platinum certification", "Smart building technology", "Earthquake-resistant design", "Vertical gardens"],
             challenges: ["Complex foundation work due to high water table", "Integration of multiple building systems", "Strict urban planning regulations"],
         },
@@ -362,22 +362,22 @@ const projects = [
         gridArea: "1 / 2 / 2 / 3",
         details: {
             location: "Suburban Eco-District",
-            duration: "24 months",
+            duration: "2 Crores",
             budget: "$200 million",
             features: ["Net-zero energy consumption", "Rainwater harvesting system", "Passive solar design", "Biodiversity-friendly landscaping"],
             challenges: ["Balancing affordability with sustainability features", "Educating residents on eco-friendly practices", "Integrating with existing infrastructure"],
         },
     },
     {
-        image: "/houseOfMorernity.jpeg",
+        image: "/WhatsApp Image 2024-12-06 at 19.22.29.jpeg",
         title: "House of modernity",
         desc: "In the House of Modernity, luxury knows no bounds. With sleek lines, minimalist aesthetics, and an unwavering commitment to innovation, this iconic residence redefines the modern lifestyle. From its energy-efficient systems to its state-of-the-art entertainment systems, every detail has been meticulously designed to impress.",
         size: "medium",
         gridArea: "2 / 2 / 3 / 3",
         details: {
             location: "Twin Cities Metropolitan Area",
-            duration: "48 months",
-            budget: "$1.2 billion",
+            duration: "12 months",
+            budget: "80 Lakhs",
             features: ["Wind-resistant design", "Smart traffic management system", "Integrated public art installations", "Observation decks at tower peaks"],
             challenges: ["Minimizing environmental impact on river ecosystem", "Managing traffic flow during construction", "Coordinating between multiple municipal authorities"],
         },
@@ -389,9 +389,9 @@ const projects = [
         size: "large",
         gridArea: "1 / 3 / 3 / 4",
         details: {
-            location: "Historic City Center",
-            duration: "60 months",
-            budget: "$800 million",
+            location: "Nagpur",
+            duration: "12 months",
+            budget: "50 Lakhs",
             features: ["Adaptive reuse of industrial buildings", "Smart city infrastructure integration", "Public-private partnership model", "Creation of innovation district"],
             challenges: ["Preserving historical integrity while modernizing", "Addressing gentrification concerns", "Phased implementation to minimize disruption"],
         },

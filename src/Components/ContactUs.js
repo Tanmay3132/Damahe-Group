@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Box, TextField, Button, Container, Snackbar, Alert, Paper, Grid, InputAdornment, CircularProgress } from "@mui/material";
 import { Send as SendIcon, Person as PersonIcon, Email as EmailIcon, Subject as SubjectIcon, Message as MessageIcon } from "@mui/icons-material";
+import axios from "axios";
 
 export default function ContactForm() {
     const [formData, setFormData] = useState({
@@ -8,6 +9,7 @@ export default function ContactForm() {
         email: "",
         subject: "",
         message: "",
+        phone: "",
     });
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -35,6 +37,7 @@ export default function ContactForm() {
         else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = "Email is invalid";
         if (!formData.subject.trim()) newErrors.subject = "Subject is required";
         if (!formData.message.trim()) newErrors.message = "Message is required";
+        if (!formData.phone.trim()) newErrors.message = "phone Number is required";
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
@@ -44,10 +47,41 @@ export default function ContactForm() {
         if (validateForm()) {
             setIsSubmitting(true);
             // Simulate API call
+            console.log(e);
             await new Promise((resolve) => setTimeout(resolve, 2000));
+            const paylaod = {
+                messaging_product: "whatsapp",
+                to: "919359617608",
+                type: "template",
+                template: {
+                    name: "customerdetails",
+                    language: {
+                        code: "en",
+                    },
+                    components: [
+                        {
+                            type: "body",
+                            parameters: [
+                                {
+                                    type: "text",
+                                    text: JSON.stringify(formData),
+                                },
+                            ],
+                        },
+                    ],
+                },
+            };
+            const headers = {
+                headers: {
+                    Authorization: `Bearer EAAbQZCfrpik0BOZCF3ZAPW5OY8axHm8B8NpcjOSbZCjVhwtHNrehnp3A0fy6t5OSVd0lbpPnkx5SvPOuCZCCSZAvywE09lRs3sHZByf4S3K09ZCVLKzMufPfmZAHIpLSMAcFGEvEUJ3j7uJtLiKyLnhrP2vqxjjoEdCDXfkGXrlygXpRxhyEqPHnyuFqorTj2UdNcpfbNCl9V5SACOFsCcGCKdy7rP5IZD`,
+                },
+            };
+            const response = await axios.post("https://graph.facebook.com/v21.0/112578155105976/messages", paylaod, headers);
+            debugger;
+            console.log(response);
             console.log("Form submitted:", formData);
             setOpenSnackbar(true);
-            setFormData({ name: "", email: "", subject: "", message: "" });
+            setFormData({ name: "", email: "", subject: "", message: "", phone: "" });
             setIsSubmitting(false);
         }
     };
@@ -90,6 +124,27 @@ export default function ContactForm() {
                                 sx={{ backgroundColor: bgColor }}
                                 required
                                 fullWidth
+                                label="Phone Number"
+                                name="phone"
+                                type="number"
+                                value={formData.phone}
+                                onChange={handleChange}
+                                error={!!errors.phone}
+                                helperText={errors.phone}
+                                InputProps={{
+                                    startAdornment: (
+                                        <InputAdornment position="start">
+                                            <PersonIcon color="primary" />
+                                        </InputAdornment>
+                                    ),
+                                }}
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <TextField
+                                sx={{ backgroundColor: bgColor }}
+                                required
+                                fullWidth
                                 label="Email"
                                 name="email"
                                 type="email"
@@ -106,7 +161,7 @@ export default function ContactForm() {
                                 }}
                             />
                         </Grid>
-                        <Grid item xs={12}>
+                        <Grid item xs={6}>
                             <TextField
                                 required
                                 sx={{ backgroundColor: bgColor }}
