@@ -234,6 +234,11 @@ export default function ResponsiveCarousel() {
         };
     }, []);
 
+    const onClickComponent = (title) => {
+        if (title === "Software Development") {
+            window.open("https://676c077eda0e8e3f4c51fc96--techgrowify.netlify.app/", "_blank");
+        }
+    };
     return (
         <CarouselContainer
             onMouseEnter={handleInteractionStart}
@@ -267,6 +272,7 @@ export default function ResponsiveCarousel() {
                             isHovered={isCardHovered && position === 1}
                             onMouseEnter={() => position === 1 && setIsCardHovered(true)}
                             onMouseLeave={() => setIsCardHovered(false)}
+                            onClick={() => onClickComponent(item.title)}
                         >
                             <ContentOverlay style={{ transform: isCardHovered && position === 1 ? "translateY(-3rem)" : "none" }}>
                                 <Typography variant="h5" style={{ marginBottom: "10px" }}>
